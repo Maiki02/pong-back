@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DELETE_PLAYER = exports.CREATE_PLAYER = exports.GET_PLAYERS = void 0;
+const express_1 = require("express");
+const players_1 = require("../functions-request/players");
+exports.GET_PLAYERS = '/getplayers';
+exports.CREATE_PLAYER = '/createplayer';
+exports.DELETE_PLAYER = '/disconnect';
+const router = (0, express_1.Router)();
+router.post(exports.CREATE_PLAYER, (req, res) => (0, players_1.createPlayerParam)(req, res));
+router.get(exports.GET_PLAYERS, (req, res) => (0, players_1.getPlayersParam)(req, res));
+router.post(exports.DELETE_PLAYER, (req, res) => (0, players_1.deletePlayerParam)(req, res));
+exports.default = router;
